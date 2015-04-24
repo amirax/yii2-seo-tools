@@ -1,0 +1,34 @@
+{
+    "name": "amirax/yii2-seo-tools",
+    "description": "SEO tools for Yii 2 framework",
+    "minimum-stability": "stable",
+    "type": "yii2-extension",
+    "keywords": ["yii2", "extension", "seo"],
+    "homepage": "https://github.com/amirax/yii2-seo-tools",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Amirax",
+            "email": "dev@amirax.net",
+            "homepage": "http://www.amirax.ru/"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/amirax/yii2-seo-tools/issues",
+        "source": "https://github.com/amirax/yii2-seo-tools"
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Amirax\\SeoTools\\": "src"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
