@@ -89,7 +89,7 @@ class Meta extends Component {
     protected function _prepareVars()
     {
         $this->setVar([
-            'HOME_URL' => Url::home(),
+            'HOME_URL' => Url::home(true),
             'CANONICAL_URL' => Url::canonical(),
             'LOCALE' => Yii::$app->formatter->locale
         ]);
