@@ -168,7 +168,7 @@ class Meta extends Component {
             foreach($tags AS $tagName=>$tagProp) {
                 if(!empty($tagProp) && is_string($tagProp))
                     $tagProp = str_replace(array_keys($this->_variables), $this->_variables, $tagProp);
-                $this->_view->registerMetaTag(['name' => $tagName, 'content' => $tagProp]);
+                $this->_view->registerMetaTag(['property' => $tagName, 'content' => $tagProp]);
             }
         }
         return $this;
