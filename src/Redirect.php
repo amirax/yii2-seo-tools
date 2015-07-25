@@ -26,7 +26,7 @@ class Redirect extends ErrorHandler {
 
         if(!empty($redirectModel)) {
             $redirectStatus = ($redirectModel['status'] == 302) ? 302 : 301;
-            header("Location: " . Url::toRoute($redirectModel['new_url']), true, $redirectStatus);
+            header("Location: " . $redirectModel['new_url'], true, $redirectStatus);
             exit;
         }
 
