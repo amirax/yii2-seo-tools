@@ -1,6 +1,6 @@
 # Amirax SEO Tools for Yii 2
 
-##Installation
+## Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
@@ -24,9 +24,9 @@ After installation extension run migration:
 ./yii migrate --migrationPath="@vendor/amirax/yii2-seo-tools/src/migrations"
 ```
 
-##Usage
+## Usage
 
-###SEO Meta
+### SEO Meta
 In components configuration add the following
 ```php
 'components' => [
@@ -62,7 +62,7 @@ Default variables:
 * %CANONICAL_URL%  - Canonical URL for current page
 * %LOCALE%         - Site locale
 
-###SEO Redirect
+### SEO Redirect
 For enabling SEO Redirect add to configuration file 
 ```php
 'errorHandler' => [
