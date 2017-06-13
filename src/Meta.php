@@ -163,7 +163,7 @@ class Meta extends Component
     protected function _setTags($data)
     {
         $tags = ArrayHelper::merge(
-            $this->_defaultMetaData['tags'],
+            array_key_exists('tags', $this->_defaultMetaData) ? $this->_defaultMetaData['tags'] : [],
             $data['tags']
         );
         if (!empty($tags)) {
