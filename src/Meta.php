@@ -1,4 +1,5 @@
 <?php
+
 namespace Amirax\SeoTools;
 
 use yii;
@@ -18,7 +19,8 @@ use Amirax\SeoTools\models\SeoMeta;
  * @link https://github.com/amirax/yii2-seo-tools
  * @license https://github.com/amirax/yii2-seo-tools/blob/master/LICENSE.md
  */
-class Meta extends Component {
+class Meta extends Component
+{
 
     protected $_view = null;
     protected $_routeMetaData = [];
@@ -45,9 +47,9 @@ class Meta extends Component {
      */
     public function setVar($name, $value = '')
     {
-        if(!empty($name)) {
-            if(is_array($name)) {
-                foreach($name AS $varName=>$value) {
+        if (!empty($name)) {
+            if (is_array($name)) {
+                foreach ($name AS $varName => $value) {
                     $this->_variables['%' . $varName . '%'] = $value;
                 }
             } else {
@@ -141,9 +143,9 @@ class Meta extends Component {
      */
     protected function _setRobots($data)
     {
-        if($data['robots'] > 0) {
+        if ($data['robots'] > 0) {
             $robots = new Robots();
-            if($robots->idExists($data['robots'])) {
+            if ($robots->idExists($data['robots'])) {
                 $this->_view->registerMetaTag(['name' => 'robots', 'content' => $robots->getPropById($data['robots'])]);
             }
         }
@@ -164,9 +166,9 @@ class Meta extends Component {
             $this->_defaultMetaData['tags'],
             $data['tags']
         );
-        if(!empty($tags)) {
-            foreach($tags AS $tagName=>$tagProp) {
-                if(!empty($tagProp) && is_string($tagProp))
+        if (!empty($tags)) {
+            foreach ($tags AS $tagName => $tagProp) {
+                if (!empty($tagProp) && is_string($tagProp))
                     $tagProp = str_replace(array_keys($this->_variables), $this->_variables, $tagProp);
                 $this->_view->registerMetaTag(['property' => $tagName, 'content' => $tagProp]);
             }
@@ -183,22 +185,22 @@ class Meta extends Component {
      */
     protected function _getMetaData($route, $params = null)
     {
-            $params = json_encode($params);
-            $model = SeoMeta::find()
-                ->where(['route' => '-'])
-                ->orWhere(
-                    ['and', 'route=:route', ['or', 'params IS NULL', 'params=:params']],
-                    [':route'  => $route, ':params' => $params]
-                )->asArray()
-                ->all();
+        $params = json_encode($params);
+        $model = SeoMeta::find()
+            ->where(['route' => '-'])
+            ->orWhere(
+                ['and', 'route=:route', ['or', 'params IS NULL', 'params=:params']],
+                [':route' => $route, ':params' => $params]
+            )->asArray()
+            ->all();
 
-            foreach($model AS $item) {
-                $item = array_filter($item, 'strlen');
-                if(!empty($item['tags'])) $item['tags'] = (array)json_decode($item['tags']);
-                if($item['route'] == '-') $this->_defaultMetaData = $item;
-                elseif($item['route'] != '-' && empty($item['params'])) $this->_routeMetaData = $item;
-                elseif($item['route'] != '-' && !empty($item['params'])) $this->_paramsMetaData = $item;
-            }
+        foreach ($model AS $item) {
+            $item = array_filter($item, 'strlen');
+            if (!empty($item['tags'])) $item['tags'] = (array)json_decode($item['tags']);
+            if ($item['route'] == '-') $this->_defaultMetaData = $item;
+            elseif ($item['route'] != '-' && empty($item['params'])) $this->_routeMetaData = $item;
+            elseif ($item['route'] != '-' && !empty($item['params'])) $this->_paramsMetaData = $item;
+        }
     }
 
 
@@ -210,7 +212,7 @@ class Meta extends Component {
 
     public function __set($prop, $value)
     {
-        if(empty($prop)) return;
+        if (empty($prop)) return;
         $this->_userMetaData[$prop] = &$value;
     }
 

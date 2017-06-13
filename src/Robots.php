@@ -1,4 +1,5 @@
 <?php
+
 namespace Amirax\SeoTools;
 
 /**
@@ -10,12 +11,13 @@ namespace Amirax\SeoTools;
  * @link https://github.com/amirax/yii2-seo-tools
  * @license https://github.com/amirax/yii2-seo-tools/blob/master/LICENSE.md
  */
-class Robots {
+class Robots
+{
 
-    const ROBOTS_INDEX_FOLLOW     = 0;
+    const ROBOTS_INDEX_FOLLOW = 0;
     const ROBOTS_NOINDEX_NOFOLLOW = 1;
-    const ROBOTS_ONLY_NOINDEX     = 2;
-    const ROBOTS_ONLY_NOFOLLOW    = 3;
+    const ROBOTS_ONLY_NOINDEX = 2;
+    const ROBOTS_ONLY_NOFOLLOW = 3;
 
     protected $_robotsAvailableValues = [
         'index, follow',
@@ -44,7 +46,7 @@ class Robots {
      */
     public function getPropById($id)
     {
-        if(!$this->idExists($id)) return false;
+        if (!$this->idExists($id)) return false;
         return $this->_robotsAvailableValues[$id];
     }
 

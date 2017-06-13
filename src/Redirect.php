@@ -1,4 +1,5 @@
 <?php
+
 namespace Amirax\SeoTools;
 
 use yii;
@@ -15,7 +16,8 @@ use Amirax\SeoTools\models\SeoRedirects;
  * @link https://github.com/amirax/yii2-seo-tools
  * @license https://github.com/amirax/yii2-seo-tools/blob/master/LICENSE.md
  */
-class Redirect extends ErrorHandler {
+class Redirect extends ErrorHandler
+{
 
     public function handleException($exception)
     {
@@ -24,7 +26,7 @@ class Redirect extends ErrorHandler {
             ->asArray()
             ->one();
 
-        if(!empty($redirectModel)) {
+        if (!empty($redirectModel)) {
             $redirectStatus = ($redirectModel['status'] == 302) ? 302 : 301;
             header("Location: " . $redirectModel['new_url'], true, $redirectStatus);
             exit;

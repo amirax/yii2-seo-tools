@@ -1,4 +1,5 @@
 <?php
+
 namespace Amirax\SeoTools\models;
 
 use Yii;
